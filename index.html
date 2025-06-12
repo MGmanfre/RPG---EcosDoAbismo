@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ecos do Abismo</title>
+    <link rel="stylesheet" href="./src/css/style.css" />
+    <link rel="stylesheet" href="./src/css/fonts.css" />
+    <link rel="icon" href="./src/img/favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <header>
+      <h1>Ecos do Abismo</h1>
+      <p>Uma jornada através das profundezas desconhecidas.</p>
+    </header>
+    <main id="corpoCentral">
+      <main id="corpoEsquerdo">
+        <section id="personagemGeral" class="sectionContainer">
+          <div id="personagemContainer">
+            <h2>Personagem:</h2>
+            <label class="labelContainers" for="nome">Nome:</label>
+            <input class="inputContainers" type="text" id="nome" />
+            <label class="labelContainers" for="profissao">Profissão:</label>
+            <input class="inputContainers" type="text" id="profissao" />
+            <label class="labelContainers" for="nivel">Nível:</label>
+            <input class="inputContainers" type="number" id="nivel" min="1" value="1" />
+            <label class="labelContainers" for="lore">Lore:</label>
+            <textarea name="lore" class="inputContainers"></textarea>
+          </div>
+          <div id="statusContainer">
+            <h2>Status:</h2>
+            <div id="status">
+              <div class="statusContainer">
+                <label for="sanidade" class="labelContainers">Sanidade:</label>
+                <div class="statusInput">
+                  <input class="atual" type="number" min="0" max="100" value="100" placeholder="Atual" />
+                  <span style="margin: 0 6px">/</span>
+                  <input class="maximo" type="number" min="0" value="100" placeholder="Máximo" />
+                </div>
+              </div>
+              <div class="statusContainer">
+                <label for="mana" class="labelContainers">Mana:</label>
+                <div class="statusInput">
+                  <input class="atual" type="number" min="0" max="100" value="100" placeholder="Atual" />
+                  <span style="margin: 0 6px">/</span>
+                  <input class="maximo" type="number" min="0" value="100" placeholder="Máximo" />
+                </div>
+              </div>
+              <div class="statusContainer">
+                <label for="stamina" class="labelContainers">Stamina:</label>
+                <div class="statusInput">
+                  <input class="atual" type="number" min="0" max="100" value="100" placeholder="Atual" />
+                  <span style="margin: 0 6px">/</span>
+                  <input class="maximo" type="number" min="0" value="100" placeholder="Máximo" />
+                </div>
+              </div>
+              <div class="statusContainer" id="pesoStatus">
+                <label for="peso" class="labelContainers">Peso:</label>
+                <div class="statusInput">
+                  <input class="atual" type="number" min="0" max="100" value="0" placeholder="Atual" />
+                  <span style="margin: 0 6px">/</span>
+                  <input class="maximo" type="number" min="0" value="100" placeholder="Máximo" />
+                </div>
+                <span id="pesoAviso" style="margin-left: 12px; font-weight: bold"></span>
+              </div>
+              <div class="statusContainer">
+                <label for="Imunidade" class="labelContainers">Imunidade:</label>
+                <div id="statusInput">
+                  <input type="number" min="0" max="100" value="0" />
+                  <span>%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="atributos" class="sectionContainer">
+          <div id="atributosStatus">
+            <h2>Atributos de Status:</h2>
+            <label for="vigor">Vigor:</label>
+            <input type="number" id="vigor" min="0" max="100" value="0" />
+            <label for="imunidade">Imunidade:</label>
+            <input type="number" id="imunidade" min="0" max="100" value="0" />
+            <label for="forcaEspiritual">Força Espiritual:</label>
+            <input type="number" id="forcaEspiritual" min="0" max="100" value="0" />
+          </div>
+          <div id="atributosDados">
+            <h2>Atributos de Dados:</h2>
+            <label for="forca">Força:</label>
+            <input type="number" id="forca" min="0" max="100" value="0" />
+            <label for="destreza">Destreza:</label>
+            <input type="number" id="destreza" min="0" max="100" value="0" />
+            <label for="sensibilidadeEspiritual">Sensibilidade Espiritual:</label>
+            <input type="number" id="sensibilidadeEspiritual" min="0" max="100" value="0" />
+          </div>
+        </section>
+        <article class="articleContainer">
+          <h2>Corpo:</h2>
+        </article>
+      </main>
+      <main id="corpoDireito">
+        <aside class="asideContainer">
+          <h2>Armamentos:</h2>
+          <table id="armamentosTable" style="width: 100%; text-align: center">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Tipo</th>
+                <th>Dano</th>
+                <th>Peso</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="armamentosBody"></tbody>
+          </table>
+          <button type="button" id="adicionarArma">+</button>
+        </aside>
+        <aside class="asideContainer">
+          <h2>Armadura:</h2>
+          <table id="armaduraTable" style="width: 100%; text-align: center">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <td>Descrição</td>
+                <th>Material</th>
+                <th>Tipo</th>
+                <th>Resistência</th>
+                <th>Peso</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="armaduraBody"></tbody>
+          </table>
+          <button type="button" id="adicionarArmadura">+</button>
+        </aside>
+        <aside class="asideContainer">
+          <h2>Habilidades:</h2>
+          <table id="habilidadesTable" style="width: 100%; text-align: center">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Tipo</th>
+                <th>Escola</th>
+                <th>Dano</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="habilidadesBody"></tbody>
+          </table>
+          <button type="button" id="adicionarHabilidade">+</button>
+        </aside>
+        <aside class="asideContainer">
+          <h2>Inventário:</h2>
+          <table id="inventarioTable" style="width: 100%; text-align: center">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Quantidade</th>
+                <th>Peso</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="inventarioBody"></tbody>
+          </table>
+          <button type="button" id="adicionarItem">+</button>
+        </aside>
+      </main>
+    </main>
+    <button onclick="exportarTabelaParaExcel('armamentosTable', 'Armamentos')">Exportar Armamentos</button>
+  </body>
+  <script src="./src/js/app.js"></script>
+  <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+</html>
